@@ -7,7 +7,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    correct_user
   end
   
   def new
@@ -28,12 +27,10 @@ class TasksController < ApplicationController
   end
   
   def edit
-    correct_user
   end
   
   def update
-    correct_user
-    
+
     if @task.update(task_params)
       flash[:success] = 'Taskは正常に更新されました'
       redirect_to @task
@@ -44,7 +41,6 @@ class TasksController < ApplicationController
   end
   
   def destroy
-    correct_user
     @task.destroy
     
     flash[:success] = 'Taskは正常に削除されました'
